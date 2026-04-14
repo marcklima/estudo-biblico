@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Atenção Centralizada | Estudo Peterson</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Open Sans', sans-serif; background-color: #f8fafc; color: #334155; }
+        .font-serif { font-family: 'Merriweather', serif; }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        }
+
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+        }
+
+        .focus-ring {
+            width: 100px; height: 100px;
+            border: 2px solid #c5a059;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+        .focus-ring::after {
+            content: ''; width: 10px; height: 10px; background: #1a237e; border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="p-6 md:p-12">
+
+    <main class="max-w-5xl mx-auto">
+        
+        <header class="text-center mb-16">
+            <span class="text-[#c5a059] font-semibold tracking-widest text-xs uppercase">A Essência da Atenção</span>
+            <h1 class="font-serif text-3xl md:text-5xl text-[#1a237e] mt-4">Deus em Seus Relacionamentos</h1>
+        </header>
+
+        <section class="glass-panel p-8 md:p-16 rounded-3xl mb-12 text-center">
+            <p class="text-lg md:text-2xl text-slate-600 leading-relaxed italic">
+                "Estamos atentos a Deus por causa de Seus relacionamentos: <span class="text-[#1a237e] font-bold">comigo</span>, com Seu <span class="text-[#1a237e] font-bold">povo</span>, com uma <span class="text-[#1a237e] font-bold">pessoa específica</span>."
+            </p>
+        </section>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            
+            <div class="glass-panel p-8 rounded-2xl hover-lift bg-gradient-to-b from-white to-[#e0f2f1]/30">
+                <div class="text-xs font-bold text-teal-600 mb-4 tracking-widest uppercase">Na Oração</div>
+                <h3 class="font-serif text-xl mb-4">O contexto sou Eu</h3>
+                <p class="text-sm leading-relaxed text-slate-500">
+                    A atenção centralizada no relacionamento íntimo e pessoal. É onde o "fôlego no nariz" encontra o Sopro do Criador.
+                </p>
+            </div>
+
+            <div class="glass-panel p-8 rounded-2xl hover-lift bg-gradient-to-b from-white to-[#f1f8e9]/30">
+                <div class="text-xs font-bold text-emerald-600 mb-4 tracking-widest uppercase">na Bíblia</div>
+                <h3 class="font-serif text-xl mb-4">A Comunidade da Fé</h3>
+                <p class="text-sm leading-relaxed text-slate-500">
+                    A atenção voltada para a história. Como Deus agiu com Seu povo durante milênios, de Israel ao Messias.
+                </p>
+            </div>
+
+            <div class="glass-panel p-8 rounded-2xl hover-lift bg-gradient-to-b from-white to-blue-50/30">
+                <div class="text-xs font-bold text-blue-600 mb-4 tracking-widest uppercase">Na Orientação</div>
+                <h3 class="font-serif text-xl mb-4">A Pessoa à Frente</h3>
+                <p class="text-sm leading-relaxed text-slate-500">
+                    A atenção focada no agir de Deus na vida do próximo. Ver a imagem de Deus no outro.
+                </p>
+            </div>
+
+        </div>
+
+        <footer class="mt-20 text-center border-t border-slate-200 pt-8">
+            <div class="focus-ring"></div>
+            <p class="text-xs font-bold tracking-[0.4em] text-slate-400 uppercase">Atenção Centralizada em Deus</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>
