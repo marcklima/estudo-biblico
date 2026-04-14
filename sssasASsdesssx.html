@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isaías 2:14 - Montes e Outeiros</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@800&family=Oswald:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #0f172a; color: #f8fafc; font-family: 'Oswald', sans-serif; }
+        .font-cinzel { font-family: 'Cinzel', serif; }
+        .peak-gradient {
+            background: linear-gradient(to bottom, #1e293b 0%, #0f172a 100%);
+        }
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 1.2s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .horizon-line { width: 100%; height: 2px; background: #334155; margin: 40px 0; position: relative; }
+        .horizon-line::after { content: 'NÍVEL DO JUÍZO'; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: #0f172a; padding: 0 10px; font-size: 10px; color: #64748b; }
+    </style>
+</head>
+<body class="peak-gradient">
+
+    <nav class="p-4 text-center border-b border-white/5 bg-black/20">
+        <p class="text-[9px] tracking-[0.5em] text-slate-500 uppercase">Recapitulação: Depois dos Cedros (v.13), o juízo alcança as próprias fundações da terra (v.14).</p>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 py-24">
+        
+        <header class="text-center mb-20 reveal">
+            <h2 class="font-cinzel text-slate-500 tracking-[0.8em] text-xs mb-4">HARIM RAMIM</h2>
+            <h1 class="font-cinzel text-4xl md:text-6xl text-white mb-6 uppercase">Montes Altos & Outeiros Elevados</h1>
+            <p class="text-slate-400 font-light tracking-widest italic">"E contra todos os montes altos, e contra todos os outeiros elevados;" — Isaías 2:14</p>
+        </header>
+
+        <div class="horizon-line"></div>
+
+        <section class="grid md:grid-cols-2 gap-12 mb-20 reveal">
+            <div class="space-y-6">
+                <h3 class="font-cinzel text-xl text-slate-300 border-l-4 border-slate-500 pl-4">A Teologia do Relevo</h3>
+                <p class="text-sm font-light leading-relaxed text-slate-400">
+                    Na geografia bíblica, montes altos eram lugares de adoração pagã (os "altos"). Espiritualmente, representam as **ideologias, filosofias e sistemas de governo** que se levantam contra o conhecimento de Deus. Se hoje trocamos palavras para "elevar" comportamentos baixos, estamos construindo "outeiros elevados" de linguagem para esconder a nossa queda.
+                </p>
+            </div>
+            <div class="bg-slate-800/30 p-8 rounded-lg border border-slate-700">
+                <h4 class="text-xs font-bold text-slate-500 mb-4 uppercase">Reflexão sobre a Linguagem</h4>
+                <p class="text-[13px] italic leading-relaxed">
+                    Trocar "Prostituição" por "Job" é uma tentativa de criar um monte alto onde antes havia um vale de miséria. O juízo de Deus em Isaías 2:14 é um aviso de que nenhuma "montanha de palavras" ou eufemismos modernos resistirá quando a verdade absoluta for estabelecida.
+                </p>
+            </div>
+        </section>
+
+        <section class="text-center py-16 bg-white/5 rounded-full reveal border border-white/5">
+            <h3 class="font-cinzel text-2xl mb-4">Yeshua: O Monte do Senhor</h3>
+            <p class="text-sm text-slate-400 max-w-xl mx-auto px-6 italic">
+                Enquanto os montes dos homens são nivelados, o <strong>Monte da Casa de YHWH</strong> (Is 2:2) será o único que permanecerá. Yeshua não precisa de eufemismos; Ele é a Verdade Nua. No Seu Reino, as palavras voltarão a ter o peso da realidade: "Sim, sim; Não, não".
+            </p>
+        </section>
+
+    </main>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

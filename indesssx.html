@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isaías 2:10 - O Refúgio na Rocha</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rock-dark: #1a1a1a;
+            --rock-light: #4a4a4a;
+            --majesty-gold: #c5a059;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--rock-dark); color: #d1d1d1; }
+        .font-cinzel { font-family: 'Cinzel', serif; }
+
+        .cavern-gradient {
+            background: radial-gradient(circle at 50% 50%, #2c2c2c 0%, #000000 100%);
+        }
+
+        .border-gold { border-color: var(--majesty-gold); }
+        .text-gold { color: var(--majesty-gold); }
+
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 1s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="cavern-gradient min-h-screen">
+
+    <nav class="p-6 text-center border-b border-white/5 bg-black/30">
+        <p class="text-[10px] tracking-[0.5em] uppercase text-gold/60">
+            Deixando o abatimento (v.9) para buscar o único abrigo seguro (v.10).
+        </p>
+    </nav>
+
+    <main class="max-w-5xl mx-auto px-6 py-20">
+        
+        <header class="text-center mb-24 reveal">
+            <h2 class="font-cinzel text-xs tracking-[1em] text-gold mb-8">ISAÍAS 2:10</h2>
+            <div class="space-y-6">
+                <p class="text-4xl md:text-6xl font-cinzel leading-tight italic">
+                    "Entra nas rochas, e esconde-te no pó, do terror do SENHOR e da glória da sua majestade."
+                </p>
+                <p class="text-xl text-stone-500 font-cinzel">בּוֹא בַצּוּר וְהִטָּמֵן בֶּעָפָר</p>
+            </div>
+        </header>
+
+        <div class="grid md:grid-cols-2 gap-12 mb-20">
+            <section class="reveal">
+                <h3 class="text-gold font-cinzel mb-4">Exegese: O Abrigo do Temor</h3>
+                <p class="text-sm leading-relaxed text-stone-400">
+                    O profeta ordena uma fuga para a <strong>Rocha (Tzur)</strong>. Na Bíblia, a rocha é frequentemente um lugar de proteção (Sl 18:2), mas aqui, o convite é para se esconder *da* presença esmagadora da Majestade Divina. O <strong>Pó (Aphar)</strong> representa a nossa origem e destino final. Esconder-se no pó é o ato máximo de reconhecimento da nossa pequenez diante do Criador.
+                </p>
+            </section>
+
+            <section class="grid grid-cols-2 gap-4 reveal">
+                <div class="p-4 bg-white/5 border-l-2 border-gold text-[10px]">
+                    <span class="block font-bold mb-1">TORÁ</span> Êxodo 33:22 (Moisés na fenda da rocha).
+                </div>
+                <div class="p-4 bg-white/5 border-l-2 border-gold text-[10px]">
+                    <span class="block font-bold mb-1">PROFETAS</span> Is 26:20 (Entra nos teus quartos).
+                </div>
+                <div class="p-4 bg-white/5 border-l-2 border-gold text-[10px]">
+                    <span class="block font-bold mb-1">EVANGELHOS</span> Lc 23:30 (Dirão aos montes: Caí sobre nós).
+                </div>
+                <div class="p-4 bg-white/5 border-l-2 border-gold text-[10px]">
+                    <span class="block font-bold mb-1">APOCALIPSE</span> Ap 6:15-16 (Escondendo-se nas cavernas).
+                </div>
+            </section>
+        </div>
+
+        <section class="bg-stone-900/80 p-10 rounded-3xl border border-white/5 mb-20 reveal">
+            <h3 class="font-cinzel text-xl text-gold mb-6">Messias: A Fenda na Rocha</h3>
+            <p class="text-stone-300 italic">
+                Para o crente em Yeshua, Ele é a <strong>Rocha Eterna</strong> que foi ferida para que pudéssemos nos esconder *nEle*. Enquanto o ímpio foge para as rochas por pavor, o seguidor do Messias entra na Rocha por amor e segurança. A Majestade que aterroriza o pecado é a mesma que abraça o redimido através de Tiferet.
+            </p>
+        </section>
+
+        <footer class="text-center reveal">
+            <div class="inline-block p-8 border border-gold/20 rounded-full">
+                <h4 class="font-cinzel text-gold mb-2">Oração de Prostração</h4>
+                <p class="text-sm italic text-stone-400 max-w-md mx-auto">
+                    "Senhor, antes que o Teu terror nos alcance, nós escolhemos o pó da adoração. Esconde-nos na fenda da Rocha, que é Yeshua, e que a Tua glória nos transforme em vez de nos consumir. Amém."
+                </p>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

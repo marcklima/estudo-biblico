@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isaías 2:21 - As Fendas das Rochas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Cormorant+Garamond:ital,wght@1,300;1,600&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #080808; color: #666; font-family: 'Cormorant Garamond', serif; }
+        .font-cinzel { font-family: 'Cinzel', serif; }
+        
+        .rock-texture {
+            background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('https://www.transparenttextures.com/patterns/rocky-wall.png');
+        }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1.5s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        .crack {
+            width: 2px; height: 150px; background: #222; margin: 0 auto;
+            box-shadow: 0 0 15px #b45309;
+        }
+    </style>
+</head>
+<body class="rock-texture min-h-screen">
+
+    <main class="max-w-4xl mx-auto px-6 py-24 text-center">
+        
+        <header class="reveal mb-16">
+            <h2 class="font-cinzel text-orange-900 tracking-[0.7em] text-xs mb-8 uppercase">NIKRAT HA-TZURIM</h2>
+            <h1 class="font-cinzel text-3xl md:text-5xl text-stone-300 leading-tight mb-8">
+                "PARA SE METEREM NAS FENDAS DAS ROCHAS..."
+            </h1>
+            <div class="crack"></div>
+        </header>
+
+        <section class="mb-20 reveal">
+            <p class="text-2xl text-stone-500 italic leading-relaxed">
+                "...por causa do terror do SENHOR, e da glória da sua majestade, quando ele se levantar para assombrar a terra."
+            </p>
+        </section>
+
+        <section class="grid md:grid-cols-2 gap-12 text-left reveal mb-20">
+            <div class="p-8 border border-stone-900 bg-black/40">
+                <h3 class="font-cinzel text-orange-800 mb-4 uppercase text-xs">O Contraste do Pós-Tribulacionista</h3>
+                <p class="text-sm leading-relaxed text-stone-400">
+                    Enquanto o mundo corre para as fendas das rochas em pânico, o discípulo que passou pela tribulação com <strong>Emunah</strong> reconhece nesse tremor o sinal da sua redenção. O "assombro da terra" é o prelúdio do Milênio. O refúgio não é geográfico (cavernas), é espiritual (o Messias).
+                </p>
+            </div>
+            <div class="p-8 border border-stone-900 bg-black/40">
+                <h3 class="font-cinzel text-orange-800 mb-4 uppercase text-xs">O Juízo das Estruturas</h3>
+                <p class="text-sm leading-relaxed text-stone-400">
+                    O versículo 21 repete o 19 para enfatizar que não há escapatória para a altivez. Se a nossa "Comunidade" for baseada em ouro, prata ou aparência (v.20), ela desmoronará. Somente o que foi edificado sobre a Rocha da Doutrina permanecerá de pé quando Ele se levantar.
+                </p>
+            </div>
+        </section>
+
+        <footer class="reveal pt-12">
+            <p class="text-[10px] font-cinzel tracking-[1.5em] uppercase text-stone-700">MARANATA • 2026</p>
+        </footer>
+
+    </main>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

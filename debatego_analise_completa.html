@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise Completa e Protótipo MVP - DebateGO</title>
+    <style>
+        :root {
+            --primary-color: #003366; /* Azul Profundo */
+            --secondary-color: #00FFFF; /* Ciano Elétrico */
+            --text-color: #333333;
+            --background-color: #FFFFFF;
+            --dark-bg: #1a1a1a;
+            --light-bg: #f4f4f9;
+            --debater-a-color: #FF5733;
+            --debater-b-color: #33FF57;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: var(--background-color);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        header h1 {
+            margin: 0;
+            text-align: center;
+            font-size: 2em;
+            color: var(--secondary-color);
+        }
+
+        nav {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: var(--background-color);
+            text-decoration: none;
+            padding: 8px 15px;
+            margin: 0 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            background-color: rgba(0, 255, 255, 0.2);
+            color: var(--secondary-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background-color: var(--primary-color);
+            padding: 40px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: var(--background-color);
+            margin-top: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+
+        th, td {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: rgba(0, 0, 0, 0.3);
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        strong {
+            color: var(--secondary-color);
+        }
+
+        /* Pitch Deck Styling */
+        .slide {
+            border: 1px solid var(--secondary-color);
+            padding: 30px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .slide h3 {
+            color: var(--secondary-color);
+            border-bottom: 1px solid var(--secondary-color);
+            padding-bottom: 5px;
+        }
+
+        /* MVP Prototype Styling */
+        .debate-area {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .debater-panel {
+            flex: 1;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+
+        .debater-panel h3 {
+            color: var(--secondary-color);
+            margin-top: 0;
+        }
+
+        .scoreboard {
+            background-color: var(--dark-bg);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .score-bar-container {
+            display: flex;
+            height: 30px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .score-bar-a, .score-bar-b {
+            height: 100%;
+            transition: width 0.5s ease-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--dark-bg);
+        }
+
+        .score-bar-a {
+            background-color: var(--debater-a-color);
+        }
+
+        .score-bar-b {
+            background-color: var(--debater-b-color);
+        }
+
+        .voting-interface {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .vote-button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 15px;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        #vote-a {
+            background-color: var(--debater-a-color);
+            color: var(--background-color);
+        }
+
+        #vote-b {
+            background-color: var(--debater-b-color);
+            color: var(--dark-bg);
+        }
+
+        .vote-button:hover {
+            transform: scale(1.05);
+        }
+
+        .ranking-section {
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .ranking-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .ranking-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.1em;
+        }
+
+        .rank {
+            font-weight: bold;
+            color: var(--secondary-color);
+            width: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>DebateGO: Análise Completa e Protótipo MVP</h1>
+        <nav>
+            <a href="#mitigacao">Mitigação de Riscos</a>
+            <a href="#pitchdeck">Pitch Deck Executivo</a>
+            <a href="#prototipo">Protótipo MVP</a>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <section id="mitigacao">
+            <h2>1. Plano de Mitigação de Riscos (Segurança e Escalabilidade)</h2>
+            <p>Este plano detalha as estratégias de mitigação para os dois riscos mais críticos do DebateGO: a segurança do sistema de votação (anti-fraude) e a escalabilidade da infraestrutura de tempo real.</p>
+
+            <h3>1.1. Mitigação de Risco de Segurança (Anti-Fraude na Votação)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Estratégia de Mitigação</th>
+                        <th>Ferramenta/Tecnologia</th>
+                        <th>Custo Estimado (Mensal)</th>
+                        <th>Justificativa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Autenticação Forte</strong></td>
+                        <td>Firebase Auth / AWS Cognito</td>
+                        <td>Baixo (Tier Gratuito ou US$ 50-100)</td>
+                        <td>Exigir verificação de e-mail/telefone para contas votantes. Dificulta a criação de contas *bot* em massa.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Detecção de Bots e Anomalias</strong></td>
+                        <td>Algoritmos Próprios (Backend)</td>
+                        <td>Médio (Custo de Desenvolvimento)</td>
+                        <td>Análise de padrões de voto (velocidade, IP, histórico de conta). O voto de um usuário que vota em 10 debates em 1 minuto deve ser sinalizado.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Voto Ponderado por Credibilidade</strong></td>
+                        <td>PostgreSQL / Redis</td>
+                        <td>Baixo (Custo de Desenvolvimento)</td>
+                        <td>O voto de usuários com alto histórico de acertos (Credibilidade de Juiz) tem peso maior. Desincentiva a criação de contas *bot* de baixo valor.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Rate Limiting (API)</strong></td>
+                        <td>API Gateway (AWS API Gateway / Cloudflare)</td>
+                        <td>Baixo (Incluso no custo de infra)</td>
+                        <td>Limitar o número de requisições de voto por IP ou por usuário em um curto período de tempo.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>Custo Total Estimado (MVP):</strong> Principalmente o custo de desenvolvimento do algoritmo de detecção de anomalias (aproximadamente 2-3 semanas de trabalho de um desenvolvedor sênior).</p>
+
+            <h3>1.2. Mitigação de Risco de Escalabilidade (Tempo Real e Custo)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Estratégia de Mitigação</th>
+                        <th>Ferramenta/Tecnologia</th>
+                        <th>Custo Estimado (Mensal)</th>
+                        <th>Justificativa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Streaming de Baixa Latência</strong></td>
+                        <td><strong>AWS IVS (Amazon IVS)</strong></td>
+                        <td>Alto (US$ 0.20 - US$ 0.50 por hora de visualização)</td>
+                        <td>Solução gerenciada que garante latência sub-segundo. **Mitiga o risco de tempo** de desenvolvimento e **risco de desempenho** no MVP.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Escalabilidade do Backend</strong></td>
+                        <td>AWS Lambda / ECS (com Auto Scaling)</td>
+                        <td>Médio (US$ 100 - US$ 500)</td>
+                        <td>Usar arquitetura *serverless* ou contêineres para que o Serviço de Gamificação e API escale automaticamente em picos de votação.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cache de Votação</strong></td>
+                        <td>Redis (AWS ElastiCache / Redis Cloud)</td>
+                        <td>Médio (US$ 50 - US$ 150)</td>
+                        <td>Essencial para processar votos em memória e reduzir a carga no banco de dados transacional (PostgreSQL).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Otimização de Custo (CDN)</strong></td>
+                        <td>Cloudflare</td>
+                        <td>Baixo (Tier Gratuito/Pro)</td>
+                        <td>Usar o CDN para cache de ativos estáticos e proteção básica contra DDoS.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>Custo Total Estimado (MVP com Tráfego Moderado):</strong> A infraestrutura básica (Backend, DB, Cache) pode custar entre US$ 200 e US$ 700/mês. O custo de **Streaming (IVS)** será o fator dominante, escalando diretamente com o sucesso do evento.</p>
+        </section>
+
+        <section id="pitchdeck">
+            <h2>2. Conteúdo Executivo do Pitch Deck (Slide Deck)</h2>
+            <p>Conteúdo essencial para convencer investidores, focado em 10 slides executivos.</p>
+
+            <div class="slide">
+                <h3>Slide 1: Título</h3>
+                <p><strong>Título:</strong> DebateGO: O eSport da Oratória</p>
+                <p><strong>Subtítulo:</strong> Transformando a discussão séria em competição online de alto impacto.</p>
+            </div>
+
+            <div class="slide">
+                <h3>Slide 2: O Problema</h3>
+                <p>O debate online é fragmentado, tóxico e passivo. A oratória não é tratada como um esporte competitivo de alto nível.</p>
+            </div>
+
+            <div class="slide">
+                <h3>Slide 3: A Solução (DebateGO)</h3>
+                <p>Uma plataforma unificada que gamifica o debate ao vivo, onde a **Audiência-Juiz** decide o vencedor em tempo real.</p>
+            </div>
+
+            <div class="slide">
+                <h3>Slide 4: Proposta de Valor e Diferencial</h3>
+                <p>Somos o primeiro **eSport Intelectual** do mercado. Originalidade na combinação de *streaming* de baixa latência, gamificação e votação em tempo real.</p>
+            </div>
+
+            <div class="slide">
+                <h3>Slide 5: O Mercado (TAM/SAM/SOM)</h3>
+                <p>A intersecção dos mercados de **eSports** e **EdTech**. O mercado é vasto e estamos criando uma nova categoria dentro dele.</p>
+            </div>
+
+            <div class="slide">
+                <h3>Slide 6: Modelo de Negócios (Monetização)</h3>
+                <p>Modelo Híbrido e Escalável: **Assinaturas Premium (B2C)**, **Patrocínios de Torneios (B2B)** e **Taxas de Inscrição**.</p>
+            </div>
+
+            <div class="slide">
+                <h3>Slide 7: Arquitetura e Tecnologia</h3>
+                <p>Tecnologia como Vantagem Competitiva: Arquitetura de Microsserviços (Node.js/TypeScript) + **AWS IVS** (para latência sub-segundo) + **Redis** (para votação instantânea).</p>
+            </div>
+
+            <div class="slide">
+                <h3>Slide 8: Plano de Execução (MVP)</h3>
+                <p>Foco na Validação do Core em 3-4 meses: **Streaming de 2 Debatedores + Voto Binário Simples + Placar em Tempo Real**. Objetivo: Provar que a audiência vota e que o sistema funciona sob carga.</p>
+            </div>
+
+            <div class="slide">
+                <h3>Slide 9: O Pedido (*The Ask*)</h3>
+                <p>Buscamos **R$ [Valor]** em troca de **[Porcentagem]%** de *equity*. O foco é no desenvolvimento do MVP e na aquisição de usuários.</p>
+            </div>
+        </section>
+
+        <section id="prototipo">
+            <h2>3. Protótipo Funcional MVP (Simulação)</h2>
+            <p>Este protótipo simula a interface de votação em tempo real e o ranking básico, utilizando HTML, CSS e JavaScript, conforme a stack sugerida.</p>
+
+            <div class="debate-area">
+                <div class="debater-panel">
+                    <h3>Debatedor A: Proposição</h3>
+                    <p>Tema: A Inteligência Artificial deve ser regulamentada globalmente.</p>
+                    <p>Status: <span id="status-a">Apresentando Argumento Principal</span></p>
+                </div>
+                <div class="debater-panel">
+                    <h3>Debatedor B: Oposição</h3>
+                    <p>Tema: A regulamentação global sufocará a inovação tecnológica.</p>
+                    <p>Status: <span id="status-b">Em Réplica</span></p>
+                </div>
+            </div>
+
+            <div class="scoreboard">
+                <h3>Placar em Tempo Real (Votação da Audiência)</h3>
+                <div class="score-bar-container">
+                    <div id="score-a" class="score-bar-a"></div>
+                    <div id="score-b" class="score-bar-b"></div>
+                </div>
+                <p>Total de Votos: <span id="total-votes">0</span></p>
+            </div>
+
+            <div class="voting-interface">
+                <h3>Seu Voto (Audiência-Juiz)</h3>
+                <button id="vote-a" class="vote-button">VOTAR EM A</button>
+                <button id="vote-b" class="vote-button">VOTAR EM B</button>
+                <p style="margin-top: 15px; color: #aaa;">Seu voto será computado e o placar será atualizado instantaneamente (Simulação).</p>
+            </div>
+
+            <div class="ranking-section">
+                <h2>Ranking Básico (Top Debatedores)</h2>
+                <ul class="ranking-list" id="ranking-list">
+                    <!-- Conteúdo do ranking será gerado pelo JS -->
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // Variáveis de Estado (Simulação de Backend)
+        let votesA = 500;
+        let votesB = 500;
+        let totalVotes = votesA + votesB;
+        let rankingData = [
+            { name: "Argumentador Mestre", score: 1500, rank: 1 },
+            { name: "Orador de Elite", score: 1450, rank: 2 },
+            { name: "Juiz de Ferro", score: 1380, rank: 3 },
+            { name: "Debatedor Alpha", score: 1200, rank: 4 },
+            { name: "Voz da Razão", score: 1150, rank: 5 }
+        ];
+
+        const scoreAEl = document.getElementById('score-a');
+        const scoreBEl = document.getElementById('score-b');
+        const totalVotesEl = document.getElementById('total-votes');
+        const rankingListEl = document.getElementById('ranking-list');
+
+        // Função para atualizar o placar (Simulação de Tempo Real)
+        function updateScoreboard() {
+            totalVotes = votesA + votesB;
+            const percentA = totalVotes > 0 ? (votesA / totalVotes) * 100 : 50;
+            const percentB = 100 - percentA;
+
+            scoreAEl.style.width = `${percentA}%`;
+            scoreBEl.style.width = `${percentB}%`;
+
+            scoreAEl.textContent = `${percentA.toFixed(1)}%`;
+            scoreBEl.textContent = `${percentB.toFixed(1)}%`;
+            totalVotesEl.textContent = totalVotes;
+        }
+
+        // Função para simular a votação
+        function handleVote(debater) {
+            if (debater === 'A') {
+                votesA += 1;
+            } else {
+                votesB += 1;
+            }
+            // Simula a atualização instantânea do placar
+            updateScoreboard();
+        }
+
+        // Event Listeners para os botões de voto
+        document.getElementById('vote-a').addEventListener('click', () => handleVote('A'));
+        document.getElementById('vote-b').addEventListener('click', () => handleVote('B'));
+
+        // Função para renderizar o ranking
+        function renderRanking() {
+            rankingListEl.innerHTML = '';
+            rankingData.forEach(item => {
+                const li = document.createElement('li');
+                li.className = 'ranking-item';
+                li.innerHTML = `
+                    <span class="rank">${item.rank}</span>
+                    <span class="name">${item.name}</span>
+                    <span class="score">${item.score} pts</span>
+                `;
+                rankingListEl.appendChild(li);
+            });
+        }
+
+        // Simulação de Votos Aleatórios (Simula o tráfego de outros usuários)
+        function simulateTraffic() {
+            const randomVote = Math.random();
+            if (randomVote < 0.5) {
+                votesA += Math.floor(Math.random() * 5); // Adiciona 0 a 4 votos para A
+            } else {
+                votesB += Math.floor(Math.random() * 5); // Adiciona 0 a 4 votos para B
+            }
+            updateScoreboard();
+        }
+
+        // Inicialização
+        updateScoreboard();
+        renderRanking();
+
+        // Simula a atualização do placar a cada 1 segundo (Simulação de WebSockets)
+        setInterval(simulateTraffic, 1000);
+
+        // Script para navegação suave
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - document.querySelector('header').offsetHeight,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

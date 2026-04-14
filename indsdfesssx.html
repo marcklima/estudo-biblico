@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isaías 2:11 - A Exaltação do Único</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@900&family=Inter:wght@200;500&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #000; color: #fff; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        .glory-text {
+            background: linear-gradient(to bottom, #fff 30%, #555 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Cinzel', serif;
+        }
+        .line { width: 1px; height: 150px; background: linear-gradient(to bottom, gold, transparent); margin: 20px auto; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1.5s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .spotlight {
+            position: absolute; top: -10%; left: 50%; width: 200px; height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transform: translateX(-50%); pointer-events: none;
+        }
+    </style>
+</head>
+<body class="relative">
+    <div class="spotlight"></div>
+
+    <nav class="p-4 text-center border-b border-white/10">
+        <p class="text-[9px] tracking-[0.6em] uppercase text-white/40">Recapitulação: Quando o refúgio humano falha (v.10), resta apenas o encontro com a Verdade Final.</p>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 py-24 text-center">
+        
+        <section class="reveal">
+            <h2 class="text-xs tracking-[1em] text-white/50 mb-12">ISAÍAS 2:11</h2>
+            <h1 class="glory-text text-5xl md:text-7xl mb-12 leading-none">
+                SÓ O SENHOR<br>SERÁ EXALTADO
+            </h1>
+            <p class="text-lg md:text-xl text-stone-400 italic mb-20 max-w-2xl mx-auto">
+                "Os olhos altivos dos homens serão abatidos, e a altivez dos varões será humilhada; e só o SENHOR será exaltado naquele dia."
+            </p>
+        </section>
+
+        <div class="line"></div>
+
+        <section class="grid md:grid-cols-2 gap-12 text-left mt-20 reveal">
+            <div class="p-8 border border-white/10 bg-white/5 rounded-sm">
+                <h3 class="font-bold text-white mb-4 uppercase text-xs tracking-widest">A Crítica Profética</h3>
+                <p class="text-sm text-stone-400 leading-relaxed">
+                    Isaías aponta que o pecado raiz não é apenas a idolatria (v.8), mas o <strong>Orgulho</strong>. No contexto moderno das "igrejas-comunidade" e do modelo americano, o risco é o homem (o líder, o cantor, o design) brilhar mais que a Glória Divina. O versículo 11 é o "apagão" de todas as luzes humanas para que a Luz Verdadeira apareça.
+                </p>
+            </div>
+            <div class="p-8 border border-white/10 bg-white/5 rounded-sm">
+                <h3 class="font-bold text-white mb-4 uppercase text-xs tracking-widest">Leitura Messiânica</h3>
+                <p class="text-sm text-stone-400 leading-relaxed">
+                    Yeshua é o cumprimento deste verso. Ele não buscou glória própria; Ele se esvaziou (*Kenosis*). No Reino Milenar, não haverá placas, marcas ou "marketing". A presença de <strong>Hashem</strong> preencherá tudo. A igreja que foca no "show" hoje terá dificuldade em reconhecer a simplicidade gloriosa de Yeshua "naquele dia".
+                </p>
+            </div>
+        </section>
+
+        <footer class="mt-32 pb-20 reveal">
+            <p class="text-[10px] text-white/20 uppercase tracking-[1em]">Yom YHWH • 2026</p>
+        </footer>
+    </main>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

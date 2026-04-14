@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORBIC | Tecnologia & Inovação</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --primary: #00f2ff;
+            --text: #ffffff;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none; /* Esconde o mouse padrão para o efeito tech */
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Efeito de Cursor Tecnológico */
+        #cursor {
+            width: 20px;
+            height: 20px;
+            border: 1px solid var(--primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+        }
+
+        #cursor-dot {
+            width: 4px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* Menu Fixo */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid var(--glass);
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            color: var(--primary);
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        header {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 10%;
+            background: radial-gradient(circle at center, #111 0%, #050505 100%);
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #888;
+            max-width: 600px;
+        }
+
+        /* Seção de Serviços/Projetos */
+        .projects {
+            width: 100%;
+            padding: 100px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--glass);
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.5s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            border-color: var(--primary);
+            background: rgba(0, 242, 255, 0.02);
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 12px;
+            background: var(--primary);
+            color: #000;
+            font-size: 0.7rem;
+            font-weight: bold;
+            border-radius: 20px;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            padding: 50px;
+            text-align: center;
+            border-top: 1px solid var(--glass);
+            color: #444;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="cursor"></div>
+    <div id="cursor-dot"></div>
+
+    <nav>
+        <div class="logo">ORBIC</div>
+        <div class="nav-links">
+            <a href="#intellect">Intellect</a>
+            <a href="#hubimb">Hubimb</a>
+            <a href="#videobook">Video Book</a>
+            <a href="#contato">Contato</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Futuro Modular</h1>
+        <p class="subtitle">A Orbic desenvolve ecossistemas de inteligência e hardware disruptivo para transformar informação em conhecimento ativo.</p>
+    </header>
+
+    <section class="projects">
+        <div class="card" id="intellect">
+            <div class="tag">SAAS / IA</div>
+            <h3>Orbic Intellect</h3>
+            <p>Sua IA Privada treinada em nichos específicos. Disponível nos módulos Lex, Teos, Mentor e Growth.</p>
+        </div>
+
+        <div class="card" id="hubimb">
+            <div class="tag">ECOSSISTEMA</div>
+            <h3>Hubimb</h3>
+            <p>O centro de conexões e serviços integrados da Orbic. Gestão modular para o mercado de serviços digitais.</p>
+        </div>
+
+        <div class="card" id="videobook">
+            <div class="tag">HARDWARE</div>
+            <h3>Video Book</h3>
+            <p>O futuro da leitura. Livros digitais com interatividade visual integrada em hardware dedicado.</p>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 ORBIC - Fortaleza, CE. Todos os direitos reservados.
+    </footer>
+
+    <script>
+        const cursor = document.querySelector('#cursor');
+        const dot = document.querySelector('#cursor-dot');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX - 10 + 'px';
+            cursor.style.top = e.clientY - 10 + 'px';
+            dot.style.left = e.clientX - 2 + 'px';
+            dot.style.top = e.clientY - 2 + 'px';
+        });
+
+        document.addEventListener('mousedown', () => {
+            cursor.style.transform = 'scale(0.8)';
+            cursor.style.background = 'rgba(0, 242, 255, 0.1)';
+        });
+
+        document.addEventListener('mouseup', () => {
+            cursor.style.transform = 'scale(1)';
+            cursor.style.background = 'transparent';
+        });
+    </script>
+</body>
+</html>

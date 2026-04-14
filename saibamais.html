@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbic Intellect | Detalhes do Ecossistema</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --primary: #00f2ff;
+            --accent: #7000ff;
+            --text: #ffffff;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; scroll-behavior: smooth; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+        /* Cursor Tech Memorizado */
+        #cursor { width: 30px; height: 30px; border: 1px solid var(--primary); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transition: transform 0.1s; mix-blend-mode: difference; }
+        #cursor-dot { width: 6px; height: 6px; background: var(--primary); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; }
+
+        nav { position: fixed; top: 0; width: 100%; padding: 20px 5%; background: rgba(5, 5, 5, 0.9); backdrop-filter: blur(15px); display: flex; justify-content: space-between; align-items: center; z-index: 1000; border-bottom: 1px solid var(--border); }
+        .logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--primary); text-decoration: none; letter-spacing: 3px; }
+
+        /* Hero Copywriting */
+        .hero-internal { padding: 150px 10% 80px; text-align: center; background: radial-gradient(circle at top, #101820, #050505); }
+        .hero-internal h1 { font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; margin-bottom: 20px; }
+        .hero-internal p { color: var(--primary); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* Problema vs Solução */
+        .copy-section { padding: 80px 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .copy-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; margin-bottom: 20px; }
+        .copy-content p { font-size: 1.1rem; color: #ccc; margin-bottom: 20px; }
+
+        /* Grid de Nichos */
+        .nicho-grid { padding: 60px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .nicho-card { background: var(--glass); border: 1px solid var(--border); padding: 40px; transition: 0.4s; position: relative; }
+        .nicho-card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .nicho-card h3 { font-family: 'Space Grotesk', sans-serif; color: var(--primary); margin-bottom: 15px; }
+        .price { font-size: 2rem; font-weight: 700; margin: 20px 0; }
+        .price span { font-size: 0.9rem; color: #666; }
+
+        /* Highlight Marketing */
+        .mkt-highlight { background: linear-gradient(90deg, #0a0a0a, #1a1a1a); border: 2px solid var(--accent); position: relative; }
+        .mkt-highlight::before { content: "RECOMENDADO"; position: absolute; top: -12px; right: 20px; background: var(--accent); padding: 2px 10px; font-size: 0.7rem; font-weight: bold; border-radius: 4px; }
+
+        /* CTA Table */
+        .cta-box { text-align: center; padding: 100px 10%; background: #000; border-top: 1px solid var(--border); }
+        .btn { padding: 18px 45px; background: var(--primary); color: #000; text-decoration: none; font-weight: 800; border-radius: 4px; display: inline-block; transition: 0.3s; text-transform: uppercase; }
+        .btn:hover { box-shadow: 0 0 30px var(--primary); background: #fff; }
+
+        footer { padding: 50px 10%; border-top: 1px solid var(--border); text-align: center; color: #444; }
+
+        [data-reveal] { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
+        .active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <div id="cursor"></div>
+    <div id="cursor-dot"></div>
+
+    <nav>
+        <a href="index.html" class="logo">ORBIC</a>
+        <div style="font-size: 0.8rem; letter-spacing: 2px;">INTELLECT ECOSYSTEM</div>
+    </nav>
+
+    <header class="hero-internal">
+        <p data-reveal>Chega de dados mortos</p>
+        <h1 data-reveal>Dê vida ao seu acervo com Inteligência Ativa.</h1>
+    </header>
+
+    <section class="copy-section" data-reveal>
+        <div class="copy-content">
+            <h2>Por que o Intellect?</h2>
+            <p>O profissional moderno não sofre com a falta de informação, mas com o <b>excesso</b> dela. Livros, PDFs e cursos acumulam poeira digital enquanto você perde horas procurando uma resposta.</p>
+            <p>O <b>Orbic Intellect</b> utiliza RAG (Retrieval-Augmented Generation) para transformar seu repositório em um consultor que responde com base em fontes confiáveis, sem alucinações.</p>
+        </div>
+        <div style="border-left: 1px solid var(--primary); padding-left: 40px;">
+            <p style="font-size: 1.5rem; font-family: 'Space Grotesk'; color: var(--primary);">"Não é sobre ler mais. É sobre saber onde a resposta está no momento em que você precisa."</p>
+        </div>
+    </section>
+
+    <h2 style="text-align: center; font-family: 'Space Grotesk'; font-size: 2.5rem; margin-top: 50px;">Escolha seu Módulo</h2>
+
+    <div class="nicho-grid">
+        <div class="nicho-card" data-reveal>
+            <h3>Intellect LEX</h3>
+            <p>Jurisprudência, doutrinas e análise de processos. O braço direito do advogado moderno.</p>
+            <div class="price">R$ 197<span>/mês</span></div>
+            <a href="#" class="btn" style="width: 100%; text-align: center; padding: 12px;">Assinar Lex</a>
+        </div>
+
+        <div class="nicho-card" data-reveal>
+            <h3>Intellect TEOS</h3>
+            <p>Exegese, comentários bíblicos e história da igreja. Profundidade para o seu ministério.</p>
+            <div class="price">R$ 97<span>/mês</span></div>
+            <a href="#" class="btn" style="width: 100%; text-align: center; padding: 12px;">Assinar Teos</a>
+        </div>
+
+        <div class="nicho-card" data-reveal>
+            <h3>Intellect MENTOR</h3>
+            <p>Curadoria de 500+ best-sellers de desenvolvimento pessoal e coaching.</p>
+            <div class="price">R$ 147<span>/mês</span></div>
+            <a href="#" class="btn" style="width: 100%; text-align: center; padding: 12px;">Assinar Mentor</a>
+        </div>
+
+        <div class="nicho-card mkt-highlight" data-reveal>
+            <h3>Intellect GROWTH (MKT)</h3>
+            <p>Engenharia de vendas, copywriting e estratégias de tráfego integrado.</p>
+            <div class="price">R$ 197<span>/mês</span></div>
+            <p style="font-size: 0.8rem; color: var(--primary);">*Pode ser adquirido individualmente.</p>
+            <a href="#" class="btn" style="width: 100%; text-align: center; padding: 12px; background: var(--accent); color: white;">Assinar Growth</a>
+        </div>
+    </div>
+
+    <section class="cta-box" data-reveal>
+        <h2 style="font-family: 'Space Grotesk'; font-size: 3rem; margin-bottom: 20px;">O Combo da Autoridade</h2>
+        <p style="font-size: 1.2rem; color: #888; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">
+            Não adianta ter o conhecimento se você não souber vendê-lo. Adicione o módulo <b>GROWTH</b> a qualquer nicho e transforme seu estudo em faturamento.
+        </p>
+        <div style="background: var(--glass); padding: 40px; border: 1px dashed var(--primary); display: inline-block;">
+            <h3 style="margin-bottom: 10px;">Nicho Escolhido + Intellect GROWTH</h3>
+            <p style="text-decoration: line-through; color: #555;">De R$ 394,00</p>
+            <div class="price" style="color: var(--primary); margin: 10px 0;">R$ 247<span>/mês</span></div>
+            <a href="#" class="btn">Garantir Kit Promocional</a>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 ORBIC SERVICE TECHNOLOGY | Intellect Division
+    </footer>
+
+    <script>
+        const cursor = document.querySelector('#cursor');
+        const dot = document.querySelector('#cursor-dot');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX - 15 + 'px';
+            cursor.style.top = e.clientY - 15 + 'px';
+            dot.style.left = e.clientX - 3 + 'px';
+            dot.style.top = e.clientY - 3 + 'px';
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

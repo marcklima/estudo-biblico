@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isaías 2:13 - Cedros e Carvalhos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        :root { --forest-dark: #064e3b; --wood-brown: #451a03; }
+        body { background-color: #020617; color: #ecf0f1; font-family: 'Lora', serif; }
+        .font-cinzel { font-family: 'Cinzel', serif; }
+        
+        .tree-overlay {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('https://www.transparenttextures.com/patterns/black-linen.png');
+            border-left: 10px solid var(--forest-dark);
+        }
+
+        .reveal { opacity: 0; transform: translateX(-20px); transition: all 1s ease-out; }
+        .reveal.active { opacity: 1; transform: translateX(0); }
+
+        .cedar-border { border: 1px solid rgba(6, 78, 59, 0.3); background: rgba(255,255,255,0.02); }
+    </style>
+</head>
+<body class="tree-overlay">
+
+    <nav class="p-4 text-center text-[10px] uppercase tracking-[0.4em] text-emerald-900/80 bg-emerald-500/10">
+        Recapitulação: O Dia do Senhor (v.12) alcança agora os símbolos de força e estabilidade (v.13).
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 py-20">
+        
+        <header class="mb-16 reveal">
+            <h2 class="font-cinzel text-emerald-500 tracking-[0.8em] text-xs mb-4">EREZ HA-LEVANON</h2>
+            <h1 class="font-cinzel text-4xl md:text-5xl text-white mb-6">
+                "Contra todos os cedros do Líbano... e todos os carvalhos de Basã"
+            </h1>
+            <p class="text-emerald-700 font-bold">Isaías 2:13</p>
+        </header>
+
+        <section class="grid md:grid-cols-2 gap-10 mb-20 reveal">
+            <div class="space-y-6">
+                <h3 class="font-cinzel text-xl text-emerald-400">Exegese: A Natureza do Orgulho</h3>
+                <p class="text-sm leading-relaxed text-stone-400">
+                    O <strong>Cedro (Erez)</strong> era a árvore mais nobre e alta do Oriente Médio, símbolo de realeza e templos. O <strong>Carvalho (Allon)</strong> de Basã representava força bruta e longevidade. Na profecia, Deus não está julgando árvores, mas **Instituições e Comunidades** que se tornaram autossuficientes. Quanto mais alta a árvore (a estrutura), maior o alvo para o raio do juízo.
+                </p>
+            </div>
+            <div class="cedar-border p-8 rounded-lg">
+                <h4 class="text-xs font-bold text-emerald-600 mb-4 uppercase">Aplicação à "Comunidade"</h4>
+                <p class="text-[12px] italic text-stone-300">
+                    Seja "Assembleia" ou "Comunidade", se o sentimento de "pertencer" a um grupo se torna maior do que a submissão ao Messias, essa comunidade torna-se um "Cedro do Líbano". O perigo das comunidades modernas (como a CEVA) é o amor ao grupo substituir o temor ao Deus do grupo.
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-20 reveal border-y border-emerald-900/30 py-12">
+            <h3 class="font-cinzel text-center text-emerald-500 mb-6">O Renovo que nasce do Tronco</h3>
+            <p class="text-center italic text-stone-400 max-w-2xl mx-auto">
+                Enquanto os cedros altos são derrubados, Yeshua aparece em Isaías como um <strong>"Renovo" (Netzer)</strong> humilde que sai de uma terra seca. Ele não buscou a altura do Líbano, mas a baixeza de Nazaré. A verdadeira comunidade não deve ser um cedro orgulhoso, mas um jardim que cultiva o Renovo.
+            </p>
+        </section>
+
+        <footer class="text-center reveal">
+            <div class="p-6 bg-emerald-950/20 inline-block rounded-full border border-emerald-900">
+                <p class="text-xs font-cinzel text-emerald-700 italic">"Senhor, que nossa comunidade nunca seja um cedro que confia na sua própria altura, mas um arbusto humilde que abriga a Tua glória. Amém."</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

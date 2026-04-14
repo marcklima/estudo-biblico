@@ -1,160 +1,205 @@
+
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto Isaías & Integridade Pastoral</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --serene-blue: #e0f2f1;
-            --olive-soft: #f1f8e9;
-            --deep-blue: #1a237e;
-            --gold: #c5a059;
-        }
-        body { font-family: 'Open Sans', sans-serif; background-color: #fcfbf7; color: #334155; }
-        .font-serif { font-family: 'Merriweather', serif; }
-        
-        .glass-header {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .study-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(0,0,0,0.03);
-        }
-        .study-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
-            border-color: var(--gold);
-        }
-
-        .gradient-bg {
-            background: linear-gradient(135deg, var(--serene-blue) 0%, var(--olive-soft) 100%);
-        }
-
-        .fade-in {
-            animation: fadeIn 1s ease-out forwards;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Teste Webhook n8n</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --primary: #22c55e;
+      --danger: #ef4444;
+      --border: #1f2937;
+      --input: #0b1220;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 2rem;
+      background: radial-gradient(1200px 600px at 10% 10%, #0b1220 0%, var(--bg) 40%, #060a13 100%);
+      color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    }
+    .container { max-width: 800px; margin: 0 auto; }
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 1.5rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+      backdrop-filter: blur(4px);
+    }
+    h1 { margin: 0 0 0.5rem; font-weight: 700; letter-spacing: 0.3px; }
+    p.subtitle { margin: 0 0 1rem; color: var(--muted); }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+    .field { display: flex; flex-direction: column; gap: 0.4rem; }
+    label { font-size: 0.9rem; color: var(--muted); }
+    input, textarea, select {
+      background: var(--input); color: var(--text);
+      border: 1px solid var(--border); border-radius: 10px;
+      padding: 0.7rem 0.9rem; outline: none;
+    }
+    textarea { min-height: 100px; resize: vertical; }
+    .row { display: flex; gap: 1rem; align-items: center; }
+    .btn {
+      background: var(--primary); color: #06230f;
+      border: none; border-radius: 12px; padding: 0.8rem 1rem;
+      font-weight: 700; cursor: pointer; transition: transform 120ms ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn.secondary { background: transparent; color: var(--text); border: 1px dashed var(--border); }
+    .status { margin-top: 1rem; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .status.ok { color: var(--primary); }
+    .status.err { color: var(--danger); }
+    .panel {
+      margin-top: 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    .codebox {
+      background: #0a0f1b; border: 1px solid var(--border);
+      border-radius: 12px; padding: 0.8rem; overflow: auto; max-height: 260px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 0.9rem;
+    }
+    .help { margin-top: 0.5rem; color: var(--muted); font-size: 0.9rem; }
+    .small { font-size: 0.85rem; color: var(--muted); }
+  </style>
 </head>
-<body x-data="{ menuOpen: false }">
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Teste de Webhook n8n</h1>
+      <p class="subtitle">Envie dados JSON para seu webhook e veja a resposta. Ative o workflow e use o método correto (GET/POST).</p>
 
-    <nav class="fixed top-0 w-full z-50 glass-header px-6 py-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <div class="w-8 h-8 bg-[#1a237e] rounded-lg flex items-center justify-center text-white font-serif italic">I</div>
-                <span class="font-serif text-lg tracking-tight text-[#1a237e]">Projeto Isaías</span>
-            </div>
-            <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest">
-                <a href="#" class="text-[#c5a059]">Início</a>
-                <a href="#" class="hover:text-[#1a237e] transition-colors">Capítulos</a>
-                <a href="#" class="hover:text-[#1a237e] transition-colors">Teologia</a>
-                <a href="#" class="hover:text-[#1a237e] transition-colors">Sobre</a>
-            </div>
-            <button class="bg-[#1a237e] text-white text-[10px] px-4 py-2 rounded-full font-bold uppercase tracking-tighter hover:bg-blue-900 transition-all">
-                Acessar Portal
-            </button>
+      <div class="field">
+        <label for="webhookUrl">URL do Webhook (produção)</label>
+        <input id="webhookUrl" type="text" value="http://localhost:5678/webhook/meuwebhook" />
+        <div class="help">Use a URL gerada pelo nó Webhook (Production URL). Para testes, você pode usar a Test URL do próprio nó.</div>
+      </div>
+
+      <div class="grid">
+        <div class="field">
+          <label for="nome">Nome</label>
+          <input id="nome" type="text" placeholder="Ex.: Marcelo" />
         </div>
-    </nav>
-
-    <header class="pt-48 pb-24 px-6 gradient-bg">
-        <div class="max-w-5xl mx-auto text-center fade-in">
-            <span class="text-[#c5a059] font-bold tracking-[0.4em] uppercase text-[10px] mb-4 block">Historiador & Teólogo Messasânico</span>
-            <h1 class="font-serif text-4xl md:text-7xl text-slate-900 mb-8 leading-tight">
-                Escrituras, História <br> & <span class="italic font-light">Integridade</span>
-            </h1>
-            <p class="max-w-2xl mx-auto text-slate-600 text-lg font-light leading-relaxed">
-                Um mergulho profundo no livro de Isaías e na reconstrução do ministério pastoral através da trigonometria da oração, leitura e orientação.
-            </p>
+        <div class="field">
+          <label for="email">E-mail</label>
+          <input id="email" type="email" placeholder="voce@exemplo.com" />
         </div>
-    </header>
+      </div>
 
-    <main class="max-w-7xl mx-auto px-6 py-24">
-        
-        <div class="flex justify-between items-end mb-12">
-            <div>
-                <h2 class="font-serif text-3xl text-slate-800">Módulos de Estudo</h2>
-                <p class="text-sm text-slate-400 mt-2">Navegue pelas seções desenvolvidas até agora.</p>
-            </div>
-            <div class="h-px flex-grow mx-8 bg-slate-100 hidden md:block"></div>
+      <div class="field" style="margin-top:1rem;">
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" placeholder="Escreva uma mensagem para testar..."></textarea>
+      </div>
+
+      <div class="row" style="margin-top:1rem;">
+        <button class="btn" id="btnEnviar">Enviar (POST)</button>
+        <button class="btn secondary" id="btnGet">Testar GET</button>
+        <span id="status" class="status"></span>
+      </div>
+
+      <div class="panel">
+        <div>
+          <div class="small">Payload enviado (JSON)</div>
+          <pre id="payloadBox" class="codebox">{"nome":"","email":"","mensagem":""}</pre>
         </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            <a href="isaias-2-22.html" class="study-card bg-white p-8 rounded-3xl block">
-                <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6 text-xl">⏳</div>
-                <h3 class="font-serif text-xl mb-3 text-slate-800">O Ciclo do Milênio</h3>
-                <p class="text-sm text-slate-500 leading-relaxed mb-6">A soltura de Satanás e a prova final da natureza humana sob o governo de Yeshua.</p>
-                <span class="text-[10px] font-bold text-[#c5a059] uppercase tracking-widest">Acessar Estudo &rarr;</span>
-            </a>
-
-            <a href="isaias-3-01.html" class="study-card bg-white p-8 rounded-3xl block">
-                <div class="w-12 h-12 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center mb-6 text-xl">⚔️</div>
-                <h3 class="font-serif text-xl mb-3 text-slate-800">O Colapso dos Esteios</h3>
-                <p class="text-sm text-slate-500 leading-relaxed mb-6">A retirada do pão, da água e dos líderes notáveis como juízo sobre a altivez.</p>
-                <span class="text-[10px] font-bold text-[#c5a059] uppercase tracking-widest">Acessar Estudo &rarr;</span>
-            </a>
-
-            <a href="trigonometria-pastoral-moderna.html" class="study-card bg-white p-8 rounded-3xl block">
-                <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-6 text-xl">📐</div>
-                <h3 class="font-serif text-xl mb-3 text-slate-800">A Trigonometria Pastoral</h3>
-                <p class="text-sm text-slate-500 leading-relaxed mb-6">Oração, Bíblia e Orientação: os ângulos que definem a integridade do chamado.</p>
-                <span class="text-[10px] font-bold text-[#c5a059] uppercase tracking-widest">Acessar Estudo &rarr;</span>
-            </a>
-
-            <a href="a-atencao-relacional.html" class="study-card bg-white p-8 rounded-3xl block">
-                <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center mb-6 text-xl">👁️</div>
-                <h3 class="font-serif text-xl mb-3 text-slate-800">Atenção Relacional</h3>
-                <p class="text-sm text-slate-500 leading-relaxed mb-6">Como centralizar a atenção em Deus através dos Seus relacionamentos com o povo.</p>
-                <span class="text-[10px] font-bold text-[#c5a059] uppercase tracking-widest">Acessar Estudo &rarr;</span>
-            </a>
-
-            <div class="study-card bg-slate-50 p-8 rounded-3xl border-dashed border-2 border-slate-200 flex flex-col justify-center items-center text-center opacity-60">
-                <span class="text-2xl mb-4">📜</span>
-                <h3 class="font-serif text-xl mb-2 text-slate-400">Isaías 3:5 e adiante</h3>
-                <p class="text-xs text-slate-400 uppercase tracking-widest">Próxima Atualização</p>
-            </div>
-
+        <div>
+          <div class="small">Resposta do servidor</div>
+          <pre id="responseBox" class="codebox">// A resposta aparecerá aqui...</pre>
         </div>
-    </main>
+      </div>
 
-    <footer class="bg-white border-t border-slate-100 py-16 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-8 md:mb-0">
-                <p class="font-serif text-xl text-slate-800">Ângulos da Fé</p>
-                <p class="text-xs text-slate-400 mt-2 uppercase tracking-widest">Fortaleza, CE • 2026</p>
-            </div>
-            <div class="flex space-x-12">
-                <div>
-                    <h4 class="text-[10px] font-bold text-slate-300 uppercase tracking-[0.3em] mb-4">Recursos</h4>
-                    <ul class="text-sm space-y-2 text-slate-500">
-                        <li><a href="#" class="hover:text-[#1a237e]">Artigos</a></li>
-                        <li><a href="#" class="hover:text-[#1a237e]">Livraria</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-[10px] font-bold text-slate-300 uppercase tracking-[0.3em] mb-4">Legal</h4>
-                    <ul class="text-sm space-y-2 text-slate-500">
-                        <li><a href="#" class="hover:text-[#1a237e]">Privacidade</a></li>
-                        <li><a href="#" class="hover:text-[#1a237e]">Termos</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="text-center mt-16 text-[9px] text-slate-300 uppercase tracking-[0.5em]">
-            Soli Deo Gloria
-        </div>
-    </footer>
+      <div class="help">
+        Dicas:
+        <ul>
+          <li><strong>Ative</strong> o workflow para a URL de produção funcionar.</li>
+          <li>Se o nó estiver configurado como <strong>POST</strong>, não abra no navegador (ele usa GET). Use este botão ou ferramentas como Postman/curl.</li>
+          <li>Erros comuns: 404 (webhook não registrado) e 422 (JSON inválido). Este formulário envia JSON válido.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const statusEl = $('status');
+    const payloadBox = $('payloadBox');
+    const responseBox = $('responseBox');
+
+    function setStatus(msg, ok = true) {
+      statusEl.textContent = msg;
+      statusEl.className = 'status ' + (ok ? 'ok' : 'err');
+    }
+
+    function buildPayload() {
+      return {
+        nome: $('nome').value.trim(),
+        email: $('email').value.trim(),
+        mensagem: $('mensagem').value.trim(),
+        timestamp: new Date().toISOString()
+      };
+    }
+
+    function showPayload(obj) {
+      payloadBox.textContent = JSON.stringify(obj, null, 2);
+    }
+
+    function showResponse(resText, isJsonGuess = true) {
+      try {
+        const parsed = JSON.parse(resText);
+        responseBox.textContent = JSON.stringify(parsed, null, 2);
+      } catch (_) {
+        responseBox.textContent = resText;
+      }
+    }
+
+    async function sendPost() {
+      const url = $('webhookUrl').value.trim();
+      const data = buildPayload();
+      showPayload(data);
+      setStatus('Enviando...', true);
+
+      try {
+        const res = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        const text = await res.text();
+        showResponse(text);
+        if (res.ok) {
+          setStatus(`Sucesso (${res.status})`, true);
+        } else {
+          setStatus(`Erro (${res.status})`, false);
+        }
+      } catch (err) {
+        showResponse(String(err), false);
+        setStatus('Falha na requisição (verifique URL, método e ativação do workflow).', false);
+      }
+    }
+
+    async function sendGet() {
+      const url = $('webhookUrl').value.trim();
+      const params = new URLSearchParams(buildPayload()).toString();
+      setStatus('Enviando GET...', true);
+      try {
+        const res = await fetch(`${url}?${params}`, { method: 'GET' });
+        const text = await res.text();
+        showResponse(text);
+        if (res.ok) {
+          setStatus(`Sucesso (${res.status})`, true);
+        } else {
+          setStatus(`Erro (${res.status})`, false);
+        }
+      } catch (err) {
+        showResponse(String(err), false);
+        setStatus('Falha na requisição GET.', false);
+      }
+    }
+
+    $('btnEnviar').addEventListener('click', sendPost);
+    $('btnGet').addEventListener('click', sendGet);
+  </script>
 </body>
 </html>

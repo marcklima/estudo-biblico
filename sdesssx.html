@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isaías 2:12 - O Dia do SENHOR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
+    <style>
+        :root { --judgment-red: #450a0a; --divine-gold: #b45309; }
+        body { background-color: #0a0a0a; color: #d4d4d4; font-family: 'Montserrat', sans-serif; }
+        .font-cinzel { font-family: 'Cinzel', serif; }
+
+        .judgment-bg {
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a0a0a 100%);
+            border-top: 4px solid var(--judgment-red);
+        }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        .divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, var(--divine-gold), transparent); margin: 3rem 0; }
+    </style>
+</head>
+<body class="judgment-bg">
+
+    <nav class="p-4 text-center text-[9px] uppercase tracking-[0.4em] text-stone-500 border-b border-white/5">
+        Recapitulação: Quando a exaltação humana acaba (v.11), o Tribunal de Deus é estabelecido (v.12).
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 py-20">
+        
+        <header class="text-center reveal mb-16">
+            <h2 class="font-cinzel text-amber-600 tracking-[0.6em] text-xs mb-6">YOM YHWH TZEVAOT</h2>
+            <h1 class="font-cinzel text-3xl md:text-5xl text-white leading-tight mb-8">
+                "O Dia do SENHOR dos Exércitos será contra todo o soberbo..."
+            </h1>
+            <p class="text-xl text-stone-500 italic">Isaías 2:12</p>
+        </header>
+
+        <div class="divider"></div>
+
+        <section class="grid md:grid-cols-2 gap-12 reveal mb-20">
+            <div class="space-y-4">
+                <h3 class="font-cinzel text-amber-700">O Confronto com a Soberba</h3>
+                <p class="text-sm leading-relaxed text-stone-400">
+                    O termo <strong>Yom YHWH</strong> (Dia do Senhor) refere-se a uma intervenção decisiva de Deus na história. Isaías lista três alvos: o <strong>Soberbo</strong> (orgulho interno), o <strong>Altivo</strong> (expressão externa do orgulho) e o que <strong>se exalta</strong> (busca por glória). Na cultura atual, isso inclui o marketing eclesiástico que exalta o homem acima da santidade.
+                </p>
+            </div>
+            <div class="bg-stone-900/50 p-6 border-l-2 border-amber-900">
+                <h4 class="text-xs font-bold text-amber-600 mb-2 uppercase">Conexão com a Crítica Worship</h4>
+                <p class="text-[11px] italic text-stone-500">
+                    O versículo 12 serve como um aviso: Deus é contra todo "show" que coloca o palco como foco. Se a estrutura do "Worship" moderno busca a exaltação da marca, do artista ou da experiência emocional em si, ela entra na mira do juízo profético de Isaías.
+                </p>
+            </div>
+        </section>
+
+        <section class="text-center bg-black/40 p-10 rounded-2xl border border-white/5 reveal">
+            <h3 class="font-cinzel text-xl text-amber-700 mb-4">Yeshua: O Humilde que Abate os Fortes</h3>
+            <p class="text-sm italic text-stone-400">
+                Yeshua, o Leão da Tribo de Judá, virá no "Dia do Senhor" para estabelecer o Reino. Ele não virá para participar de uma "Conference", mas para julgar as nações. Ele é a pedra que esmaga a estátua do orgulho humano (Daniel 2). A verdadeira adoração prepara o coração para este Dia, em vez de distraí-lo com luzes.
+            </p>
+        </section>
+
+        <footer class="mt-20 text-center opacity-30 text-[10px] tracking-widest">
+            PROJETO ADORAR • ESTUDO HISTÓRICO-TEOLÓGICO • 2026
+        </footer>
+    </main>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
