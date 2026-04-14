@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isaías 3:4 - O Governo dos Meninos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Pirata+One&family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #0a0a0a; color: #555; font-family: 'Roboto Mono', monospace; }
+        .font-cinzel { font-family: 'Cinzel', serif; }
+        .font-pirata { font-family: 'Pirata One', cursive; }
+        
+        .toy-crown {
+            font-size: 50px; color: #333; opacity: 1;
+            transition: all 1s ease;
+        }
+        .reveal:hover .toy-crown { color: #900; opacity: 1; transform: rotate(15deg); }
+
+        .reveal { opacity: 1; transform: translateY(10px); transition: all 1.2s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="py-20 px-6">
+
+    <nav class="max-w-4xl mx-auto mb-16 text-center border-b border-stone-900 pb-4">
+        <p class="text-[9px] tracking-[0.4em] uppercase text-stone-700">Consequência: O abandono do chamado (v.1-3) gera a liderança imatura (v.4).</p>
+    </nav>
+
+    <main class="max-w-4xl mx-auto text-center">
+        
+        <header class="reveal mb-12">
+            <h2 class="font-cinzel text-stone-800 tracking-[0.5em] text-xs mb-4 uppercase">NA'ARIM SARIM</h2>
+            <div class="toy-crown mb-4">♛</div>
+            <h1 class="font-pirata text-5xl md:text-7xl text-stone-300 mb-6 uppercase">Rapazes por Príncipes</h1>
+        </header>
+
+        <section class="max-w-2xl mx-auto reveal mb-20 text-left">
+            <p class="text-xl italic text-stone-500 mb-8">
+                "E dar-lhes-ei rapazes por príncipes, e crianças dominarão sobre eles." — Isaías 3:4
+            </p>
+            
+            <h3 class="font-cinzel text-xs text-red-950 mb-4 uppercase tracking-widest">O Juízo da Infantilização</h3>
+            <p class="text-sm leading-relaxed text-stone-600 mb-6">
+                Este versículo descreve o estágio final do colapso. Quando os pastores e líderes experientes abandonam a "matéria-prima de Deus" para focar em estatísticas e status, o vácuo é preenchido por <strong>Na'arim</strong> (jovens/rapazes). Não se trata apenas de idade cronológica, mas de imaturidade espiritual e falta de peso histórico.
+            </p>
+            <p class="text-sm leading-relaxed text-stone-600">
+                Uma igreja ou nação dominada por "crianças" é uma sociedade sem memória, sem raízes nos últimos vinte séculos de história e totalmente entregue aos caprichos do momento. É a "comunidade" que vive de <em>hypes</em> e novidades, pois não tem mais o "ancião" (v. 2) para ensinar o caminho antigo.
+            </p>
+        </section>
+
+        <footer class="reveal pt-12 border-t border-stone-900">
+            <h3 class="font-cinzel text-lg text-stone-400 mb-4">Yeshua: O Ancião de Dias</h3>
+            <p class="text-sm italic text-stone-800 max-w-xl mx-auto">
+                Enquanto o mundo é governado por impulsos infantis e líderes que buscam a si mesmos, nós olhamos para Yeshua. Ele é o verdadeiro Príncipe que não abandona o Seu posto. Ele não fala de estatísticas; Ele fala do Reino, da Alma e da Vontade do Pai.
+            </p>
+        </footer>
+
+    </main>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

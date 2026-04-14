@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ângulos da Fé | Estudo Bíblico Moderno</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,700;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --serene-blue: #e0f2f1;
+            --olive-soft: #f1f8e9;
+            --deep-blue: #1a237e;
+            --gold-discrete: #c5a059;
+        }
+        body { font-family: 'Open Sans', sans-serif; background-color: #fcfbf7; }
+        .font-serif { font-family: 'Merriweather', serif; }
+        
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Microinterações */
+        .btn-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(26, 35, 126, 0.1);
+            filter: brightness(1.1);
+        }
+
+        /* Animação de Scroll */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body x-data="{ progress: 0 }" class="text-slate-800">
+
+    <nav class="fixed top-0 w-full z-50 glass border-b border-stone-200/50 px-6 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <span class="font-serif text-xl text-indigo-900 tracking-tighter">Ângulos da Fé</span>
+            <div class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-widest text-slate-600">
+                <a href="#" class="hover:text-amber-600 transition-colors">Estudos</a>
+                <a href="#" class="hover:text-amber-600 transition-colors">Podcast</a>
+                <a href="#" class="hover:text-amber-600 transition-colors">Sobre</a>
+            </div>
+            <button class="bg-[#1a237e] text-white px-5 py-2 rounded-full text-xs font-bold btn-hover uppercase">Entrar</button>
+        </div>
+    </nav>
+
+    <header class="pt-40 pb-20 px-6 bg-gradient-to-b from-[#e0f2f1] to-transparent">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="font-serif text-4xl md:text-6xl text-slate-900 mb-6 leading-tight fade-in-up" x-intersect="$el.classList.add('visible')">
+                A Trigonometria do <br><span class="text-[#c5a059] italic">Ministério Pastoral</span>
+            </h1>
+            <p class="text-lg text-slate-600 mb-10 max-w-2xl mx-auto font-light">
+                Descubra como os pequenos ângulos internos e silenciosos determinam a integridade de todo o trabalho espiritual.
+            </p>
+            <div class="flex justify-center space-x-4">
+                <a href="#estudo" class="bg-[#c5a059] text-white px-8 py-3 rounded-lg font-bold btn-hover shadow-lg">Iniciar Estudo</a>
+                <button @click="progress = 100" class="border border-slate-300 px-8 py-3 rounded-lg font-bold btn-hover">Marcar como Lido</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="sticky top-[72px] z-40 w-full h-1 bg-stone-100">
+        <div class="h-full bg-emerald-500 transition-all duration-500" :style="`width: ${progress}%` text-align: right"></div>
+    </div>
+
+    <main id="estudo" class="max-w-6xl mx-auto px-6 py-20">
+        <div class="grid lg:grid-cols-3 gap-12">
+            
+            <div class="lg:col-span-2 space-y-16">
+                
+                <section class="fade-in-up" x-intersect="$el.classList.add('visible'); progress = 33">
+                    <h2 class="font-serif text-3xl text-indigo-900 mb-6">As Três Atividades Básicas</h2>
+                    <div class="prose prose-slate lg:prose-lg text-slate-700 leading-relaxed">
+                        <p>Existem três atividades pastorais tão básicas que determinam a forma de todas as outras: <strong>oração, leitura da Bíblia e orientação espiritual</strong>. Elas são silenciosas, não chamam a atenção, e por isso, são frequentemente negligenciadas no turbilhão das urgências ministeriais.</p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-4 mt-10">
+                        <div class="glass p-6 rounded-2xl border-l-4 border-emerald-400">
+                            <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest">Oração</span>
+                            <p class="text-sm mt-2 text-slate-600">Posto-me perante Deus, atento a Ele em meu contexto pessoal.</p>
+                        </div>
+                        <div class="glass p-6 rounded-2xl border-l-4 border-blue-400">
+                            <span class="text-xs font-bold text-blue-600 uppercase tracking-widest">Escritura</span>
+                            <p class="text-sm mt-2 text-slate-600">Presto atenção ao que Deus falou durante dois milênios na história.</p>
+                        </div>
+                        <div class="glass p-6 rounded-2xl border-l-4 border-amber-400">
+                            <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">Orientação</span>
+                            <p class="text-sm mt-2 text-slate-600">Fico atento ao que Deus está fazendo na vida de quem está diante de mim.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="fade-in-up" x-intersect="$el.classList.add('visible'); progress = 66">
+                    <div class="bg-[#f1f8e9] p-8 md:p-12 rounded-3xl border border-emerald-100">
+                        <h2 class="font-serif text-2xl text-emerald-900 mb-4">A Grande Conspiração</h2>
+                        <p class="text-emerald-800/80 mb-6">
+                            As pessoas estão preocupadas com nossa imagem e posição, com o que pode ser medido: programas, frequência e impacto sociológico. Existe um esforço para preencher nossas agendas, eliminando o tempo para a solidão e o descanso na presença de Deus.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center text-sm text-emerald-900/70">
+                                <span class="mr-2">✓</span> Falta de cobrança pública nestas áreas.
+                            </li>
+                            <li class="flex items-center text-sm text-emerald-900/70">
+                                <span class="mr-2">✓</span> Facilidade em fingir através de atos cerimoniais.
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="fade-in-up" x-intersect="$el.classList.add('visible'); progress = 100">
+                    <h2 class="font-serif text-3xl text-indigo-900 mb-6">A Metáfora da Trigonometria</h2>
+                    <div class="prose prose-slate text-slate-700">
+                        <p>As linhas visíveis são a pregação, o ensino e a administração. Mas o formato total é determinado pelos ângulos: oração, Bíblia e orientação. Se desconectarmos as ações "angulares", o ministério perde sua forma definida por Deus.</p>
+                        <blockquote class="border-l-4 border-[#c5a059] pl-6 py-2 italic font-serif text-xl text-slate-800 mt-8">
+                            "Se os ângulos estiverem corretos, desenhar as linhas entre eles será tarefa simples."
+                        </blockquote>
+                    </div>
+                </section>
+            </div>
+
+            <aside class="space-y-8">
+                <div class="glass p-8 rounded-3xl sticky top-32">
+                    <h4 class="font-serif text-lg mb-4">Progresso do Módulo</h4>
+                    <div class="flex items-center justify-between text-xs font-bold mb-2">
+                        <span>LEITURA COMPLETA</span>
+                        <span x-text="`${progress}%` font-mono"></span>
+                    </div>
+                    <div class="w-full h-2 bg-stone-200 rounded-full overflow-hidden">
+                        <div class="h-full bg-indigo-600 transition-all duration-1000" :style="`width: ${progress}%`"></div>
+                    </div>
+                    
+                    <div class="mt-8 space-y-4">
+                        <p class="text-[10px] tracking-widest text-slate-400 uppercase">Recursos Extras</p>
+                        <a href="#" class="flex items-center text-sm font-semibold text-slate-700 hover:text-indigo-900 group">
+                            <span class="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center mr-3 group-hover:bg-indigo-100 transition-colors">🎧</span>
+                            Ouvir em Podcast
+                        </a>
+                        <a href="#" class="flex items-center text-sm font-semibold text-slate-700 hover:text-indigo-900 group">
+                            <span class="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center mr-3 group-hover:bg-indigo-100 transition-colors">📄</span>
+                            Baixar PDF de Estudo
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="bg-indigo-950 text-indigo-200 py-20 px-6">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-12">
+            <div class="col-span-2">
+                <h3 class="font-serif text-2xl text-white mb-6">Ângulos da Fé</h3>
+                <p class="text-sm opacity-60 leading-relaxed">Dedicado à reconstrução da integridade pastoral e ao estudo profundo das Escrituras sob a ótica messiânica e histórica.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-sm mb-6 uppercase tracking-widest">Navegação</h4>
+                <ul class="text-sm space-y-4 opacity-60">
+                    <li><a href="#" class="hover:text-white transition-colors">Início</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Artigos</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Contato</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-sm mb-6 uppercase tracking-widest">Social</h4>
+                <div class="flex space-x-4">
+                    <span class="w-10 h-10 rounded-full border border-indigo-800 flex items-center justify-center hover:bg-indigo-900 cursor-pointer">IG</span>
+                    <span class="w-10 h-10 rounded-full border border-indigo-800 flex items-center justify-center hover:bg-indigo-900 cursor-pointer">YT</span>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto mt-20 pt-8 border-t border-indigo-900/50 text-center text-xs opacity-30">
+            &copy; 2026 Projeto Isaías 3. Desenvolvido para a glória de Deus.
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

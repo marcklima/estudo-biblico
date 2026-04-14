@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Os Ângulos da Integridade - Eugene Peterson</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:ital,wght@0,400;1,400&family=Inter:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #050505; color: #a1a1a1; font-family: 'Lora', serif; }
+        .font-cinzel { font-family: 'Cinzel', serif; }
+        .font-inter { font-family: 'Inter', sans-serif; }
+        
+        .triangle-container {
+            width: 0; height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-bottom: 260px solid #1a1a1a;
+            position: relative;
+            margin: 50px auto;
+        }
+
+        .label-angle {
+            position: absolute; font-family: 'Cinzel', serif;
+            font-size: 10px; color: #d4af37; letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-card {
+            background: linear-gradient(145deg, #0a0a0a, #111);
+            border: 1px solid #1a1a1a;
+            transition: border 0.5s ease;
+        }
+        .section-card:hover { border-color: #333; }
+
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 1.2s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="py-20 px-6">
+
+    <main class="max-w-4xl mx-auto">
+        
+        <header class="text-center mb-20 reveal">
+            <h2 class="font-cinzel text-stone-600 tracking-[0.4em] text-xs mb-4 uppercase">Integridade Pastoral</h2>
+            <h1 class="font-cinzel text-3xl md:text-5xl text-white mb-6">A Trigonometria da Vocação</h1>
+            <p class="text-stone-500 italic max-w-2xl mx-auto">
+                "São os pequenos ângulos internos e silenciosos que determinam o formato e a integridade de todo o trabalho."
+            </p>
+        </header>
+
+        <div class="reveal relative mb-24 h-[300px]">
+            <div class="triangle-container">
+                <div class="label-angle" style="bottom: -40px; left: -140px;">Oração</div>
+                <div class="label-angle" style="bottom: -40px; right: -140px;">Escritura</div>
+                <div class="label-angle" style="top: -30px; left: -50px; width: 100px; text-align: center;">Orientação</div>
+            </div>
+        </div>
+
+        <section class="grid md:grid-cols-3 gap-6 mb-16 reveal">
+            <div class="section-card p-6">
+                <h3 class="font-cinzel text-xs text-stone-400 mb-4 tracking-widest">Oração</h3>
+                <p class="text-sm text-stone-600">O pastor em seu relacionamento pessoal e secreto com o Criador.</p>
+            </div>
+            <div class="section-card p-6">
+                <h3 class="font-cinzel text-xs text-stone-400 mb-4 tracking-widest">Bíblia</h3>
+                <p class="text-sm text-stone-600">A comunidade da fé lida e compreendida dentro da história sagrada.</p>
+            </div>
+            <div class="section-card p-6">
+                <h3 class="font-cinzel text-xs text-stone-400 mb-4 tracking-widest">Orientação</h3>
+                <p class="text-sm text-stone-600">A alma específica que se encontra diante do pastor neste exato momento.</p>
+            </div>
+        </section>
+
+        <section class="section-card p-8 md:p-12 mb-16 reveal">
+            <h3 class="font-cinzel text-xl text-white mb-8 border-l-2 border-yellow-900 pl-6 uppercase">A Conspiração do Visível</h3>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="space-y-6">
+                    <p class="text-sm leading-relaxed">
+                        <strong class="text-stone-300">Falta de Cobrança:</strong> É possível satisfazer expectativas salariais e burocráticas sem jamais ser habilidoso na oração. Ninguém pede o "relatório de meditação" do pastor.
+                    </p>
+                    <p class="text-sm leading-relaxed">
+                        <strong class="text-stone-300">Resultados Mensuráveis:</strong> A cultura exige estatísticas, impacto sociológico e viabilidade econômica. O silêncio da alma não gera gráficos.
+                    </p>
+                </div>
+                <div class="space-y-6 text-stone-500 italic border-l border-stone-900 pl-8">
+                    <p class="text-sm">
+                        "É extremamente fácil simular santidade e conhecimento através de uma voz empostada ou do plágio de sermões."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-20 reveal">
+            <h3 class="font-cinzel text-center text-red-900 mb-12 uppercase tracking-widest">A Perda da Forma</h3>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="text-center md:text-right">
+                    <p class="text-2xl font-cinzel text-stone-300 mb-2 uppercase">A Loja Religiosa</p>
+                    <p class="text-sm text-stone-600">Sem ângulos internos, o ministério vira mera administração de consumidores felizes.</p>
+                </div>
+                <div class="text-center md:text-left">
+                    <p class="text-2xl font-cinzel text-stone-300 mb-2 uppercase">O Massagista</p>
+                    <p class="text-sm text-stone-600">O pastor atende aos desejos egoístas em vez de guiar à adoração radical.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center pt-16 border-t border-stone-900 reveal">
+            <p class="font-inter text-[10px] tracking-[0.5em] text-stone-700 uppercase mb-8">Baseado na Teologia de Eugene Peterson</p>
+            <p class="text-stone-400 max-w-xl mx-auto text-sm leading-relaxed italic">
+                "O trabalho pastoral não é tratar pessoas como problemas a serem resolvidos, mas chamá-las para adorar a Deus. Isso exige ser, antes de tudo, um ouvinte."
+            </p>
+        </footer>
+
+    </main>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

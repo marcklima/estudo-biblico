@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Trigonometria do Ministério | Eugene Peterson</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;600&family=Cinzel:wght@400;700&family=Outfit:wght@100;300;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fafafa;
+            --text-main: #1a1a1a;
+            --accent: #c0a080; /* Bronze Suave */
+        }
+
+        body { 
+            background-color: var(--bg); 
+            color: var(--text-main); 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.8;
+        }
+
+        .font-cinzel { font-family: 'Cinzel', serif; }
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+
+        /* Animação de Entrada */
+        .fade-in {
+            animation: fadeIn 1.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* O Triângulo Interativo */
+        .triangle-box {
+            position: relative;
+            width: 300px;
+            height: 260px;
+            margin: 60px auto;
+            transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .triangle-box:hover {
+            transform: scale(1.05);
+        }
+
+        .angle-point {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .angle-point:hover {
+            box-shadow: 0 0 20px rgba(192, 160, 128, 0.6);
+        }
+
+        .tooltip {
+            position: absolute;
+            background: white;
+            padding: 12px 20px;
+            border-radius: 4px;
+            font-size: 11px;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: none;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .angle-point:hover + .tooltip { display: block; }
+
+        .line {
+            position: absolute;
+            background: #eee;
+            transition: background 0.5s ease;
+        }
+
+        /* Estilização de Cartões */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid #f0f0f0;
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="selection:bg-stone-200">
+
+    <header class="py-32 px-6 max-w-5xl mx-auto text-center fade-in">
+        <span class="font-outfit text-xs tracking-[0.6em] text-stone-400 uppercase mb-4 block">Integridade e Forma</span>
+        <h1 class="font-cinzel text-4xl md:text-6xl text-stone-900 mb-8 leading-tight">
+            Trabalhando <br> <span class="text-stone-400 font-light italic">os Ângulos</span>
+        </h1>
+        <div class="w-12 h-px bg-stone-200 mx-auto mb-8"></div>
+    </header>
+
+    <section class="max-w-4xl mx-auto px-6 mb-40 fade-in" style="animation-delay: 0.3s;">
+        <div class="triangle-box">
+            <div class="angle-point" style="top: 0; left: 50%; transform: translateX(-50%);" title="Orientação"></div>
+            <div class="tooltip" style="top: -50px; left: 50%; transform: translateX(-50%);">Orientação Espiritual</div>
+
+            <div class="angle-point" style="bottom: 0; left: 0;" title="Oração"></div>
+            <div class="tooltip" style="bottom: -50px; left: -40px;">Oração Atenta</div>
+
+            <div class="angle-point" style="bottom: 0; right: 0;" title="Bíblia"></div>
+            <div class="tooltip" style="bottom: -50px; right: -40px;">Leitura da Bíblia</div>
+
+            <svg width="300" height="260" style="position: absolute; top:0; left:0;">
+                <polygon points="150,6 6,254 294,254" fill="none" stroke="#f0f0f0" stroke-width="1" />
+                <text x="50" y="140" font-family="Outfit" font-size="9" fill="#ccc" transform="rotate(-60 50,140)">PREGAÇÃO</text>
+                <text x="210" y="140" font-family="Outfit" font-size="9" fill="#ccc" transform="rotate(60 210,140)">ENSINO</text>
+                <text x="120" y="250" font-family="Outfit" font-size="9" fill="#ccc">ADMINISTRAÇÃO</text>
+            </svg>
+        </div>
+        <p class="text-center text-xs font-outfit text-stone-400 tracking-widest mt-12">Passe o mouse nos ângulos para revelar o fundamento.</p>
+    </section>
+
+    <main class="max-w-5xl mx-auto px-6 pb-32">
+        
+        <div class="grid md:grid-cols-2 gap-24 items-start">
+            
+            <div class="fade-in" style="animation-delay: 0.6s;">
+                <h2 class="font-cinzel text-xl mb-12 border-b border-stone-100 pb-4">Atos de Atenção</h2>
+                <div class="space-y-12 text-stone-600 text-sm md:text-base leading-relaxed">
+                    <p>
+                        <span class="font-outfit font-bold text-stone-900 block mb-2 uppercase tracking-tighter">O Contexto Sou Eu</span>
+                        Na oração, posto-me perante Deus, atento a Ele em meu relacionamento pessoal.
+                    </p>
+                    <p>
+                        <span class="font-outfit font-bold text-stone-900 block mb-2 uppercase tracking-tighter">O Contexto é a História</span>
+                        Nas Escrituras, presto atenção ao que Deus falou e como agiu durante dois milênios, primeiro em Israel e depois em Cristo.
+                    </p>
+                    <p>
+                        <span class="font-outfit font-bold text-stone-900 block mb-2 uppercase tracking-tighter">O Contexto é o Outro</span>
+                        Na orientação espiritual, fico atento ao que Deus está fazendo na vida daquela pessoa específica que se encontra diante de mim.
+                    </p>
+                </div>
+            </div>
+
+            <div class="fade-in" style="animation-delay: 0.8s;">
+                <div class="glass-card p-12 rounded-sm mb-12">
+                    <h3 class="font-outfit font-light text-2xl text-stone-800 mb-6 italic">"A Grande Conspiração"</h3>
+                    <p class="text-sm text-stone-500 mb-8">
+                        Existe uma pressão por resultados mensuráveis: programas bem-sucedidos, controles de frequência, impacto sociológico e viabilidade econômica.
+                    </p>
+                    <div class="h-px w-full bg-stone-100 mb-8"></div>
+                    <p class="text-sm text-stone-500">
+                        O objetivo? Preencher agendas com reuniões e compromissos, eliminando o tempo para a <strong>solidão e o descanso</strong> na presença de Deus.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <section class="mt-40 text-center fade-in" style="animation-delay: 1s;">
+            <div class="max-w-2xl mx-auto">
+                <h2 class="font-cinzel text-2xl text-stone-900 mb-8 uppercase tracking-widest">O Veredito</h2>
+                <p class="font-outfit text-stone-500 text-lg md:text-xl leading-relaxed italic mb-12">
+                    "O que confere integridade e forma ao trabalho diário de pastores é trabalhar os ângulos. Se estes estiverem corretos, desenhar as linhas entre eles será tarefa simples."
+                </p>
+                <p class="text-xs font-outfit text-stone-400 tracking-[0.4em] uppercase">Eugene Peterson</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="py-20 border-t border-stone-100 text-center">
+        <p class="text-[10px] font-outfit text-stone-300 tracking-[0.8em] uppercase">Projeto Isaías 3 • 2026</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
