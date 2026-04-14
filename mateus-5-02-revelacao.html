@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mateus 5:2 | O Portal da Palavra Viva</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,700;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --serene-blue: #e0f2f1;
+            --olive-soft: #f1f8e9;
+            --deep-blue: #1a237e;
+            --gold-tiferet: #c5a059;
+        }
+        body { font-family: 'Open Sans', sans-serif; background-color: #fcfbf7; color: #334155; }
+        .font-serif { font-family: 'Merriweather', serif; }
+        
+        /* Efeito de Vidro (Glassmorphism) para Destaques */
+        .glass-portal {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+
+        /* Animações de Revelação */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+        .reveal-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .line-gold {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold-tiferet), transparent);
+            width: 100%;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body class="selection:bg-emerald-100">
+
+    <nav class="p-6">
+        <a href="index.html" class="text-xs font-bold text-[#c5a059] uppercase tracking-[0.3em] hover:text-indigo-900 transition-colors">
+            &larr; Portal Central
+        </a>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 py-12">
+        
+        <header class="text-center mb-20 reveal-up" x-intersect="$el.classList.add('visible')">
+            <span class="text-indigo-900 font-light tracking-[0.5em] text-[10px] uppercase block mb-4">Exegese e Harmonização</span>
+            <h1 class="font-serif text-4xl md:text-6xl text-slate-900 mb-6">Patar Pe</h1>
+            <p class="font-serif italic text-xl text-stone-500">“E Jesus Cristo, abrindo a boca, os ensinava, dizendo…”</p>
+            <div class="line-gold"></div>
+        </header>
+
+        <section class="grid md:grid-cols-2 gap-12 mb-24 reveal-up" x-intersect="$el.classList.add('visible')">
+            <div class="glass-portal p-8 rounded-3xl">
+                <h2 class="font-serif text-2xl text-indigo-900 mb-4">Linguagem Solene</h2>
+                <p class="text-sm leading-relaxed text-slate-600">
+                    Não é redundância. No pensamento hebraico (<em>Patar Pe</em>), "abrir a boca" indica um pronunciamento <strong>autoritativo e deliberado</strong>. É o início de uma revelação profunda, geralmente ligada à profecia e à sabedoria eterna.
+                </p>
+            </div>
+            <div class="flex flex-col justify-center border-l border-stone-200 pl-8">
+                <h3 class="text-xs font-bold text-[#c5a059] uppercase tracking-widest mb-2">Raiz Sapiencial</h3>
+                <p class="text-sm italic text-stone-500">
+                    Como em Jó 3:1 ou nos Salmos, essa fórmula prepara o ouvinte: o que vem a seguir não é banal, é ensino de nível elevado.
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-24 reveal-up" x-intersect="$el.classList.add('visible')">
+            <div class="bg-gradient-to-r from-[#e0f2f1] to-[#f1f8e9] p-10 md:p-16 rounded-[3rem] text-center">
+                <h2 class="font-serif text-3xl text-indigo-900 mb-8">A Boca e o Coração (Tiferet)</h2>
+                <p class="text-lg text-indigo-800/70 max-w-2xl mx-auto leading-relaxed mb-8">
+                    A "boca" representa a expressão da verdade interior. Quando Jesus abre a boca, Ele revela o coração do Pai em um equilíbrio perfeito entre <strong>Justiça e Misericórdia</strong>.
+                </p>
+                <div class="flex justify-center space-x-6">
+                    <div class="text-center">
+                        <span class="block text-2xl mb-2">⚖️</span>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-indigo-900">Justiça</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="block text-2xl mb-2">☀️</span>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-indigo-900">Harmonia</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="block text-2xl mb-2">🕊️</span>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-indigo-900">Misericórdia</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-24 reveal-up" x-intersect="$el.classList.add('visible')">
+            <div class="p-6 border border-stone-100 rounded-2xl hover:bg-white transition-colors">
+                <h4 class="font-serif text-indigo-900 mb-3">Ex Cathedra</h4>
+                <p class="text-xs text-stone-500">O ato oficial do Mestre assumindo Sua autoridade para promulgar a Torá do Reino.</p>
+            </div>
+            <div class="p-6 border border-stone-100 rounded-2xl hover:bg-white transition-colors">
+                <h4 class="font-serif text-indigo-900 mb-3">Intimidade</h4>
+                <p class="text-xs text-stone-500">Ecoa o <em>Pé à Pé</em> (comunhão íntima). Ele abre a alma para saciar quem subiu o monte.</p>
+            </div>
+            <div class="p-6 border border-stone-100 rounded-2xl hover:bg-white transition-colors">
+                <h4 class="font-serif text-indigo-900 mb-3">Rhema</h4>
+                <p class="text-xs text-stone-500">O fim do silêncio profético. O transbordamento da sabedoria que estava guardada.</p>
+            </div>
+        </div>
+
+        <footer class="text-center py-12 border-t border-stone-200 reveal-up" x-intersect="$el.classList.add('visible')">
+            <p class="font-serif text-2xl text-stone-800 mb-4 italic">
+                “Abrir a boca não descreve um ato físico, mas o início de uma revelação que redefine a vida.”
+            </p>
+            <p class="text-[10px] font-bold text-[#c5a059] uppercase tracking-[0.4em]">Soli Deo Gloria</p>
+        </footer>
+
+    </main>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
